@@ -11,8 +11,6 @@ const DashboardPage = () => {
     const [isModalLogF, setIsModalLogF] = useState(false)
     const [listLogs, setListLogs] = useState([])
 
-    console.log(allLogs)
-
     useEffect(() => {
         allLogs().then(resultAllLogs => {
             setListLogs(resultAllLogs.data)
@@ -124,7 +122,7 @@ const DashboardPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,10 +141,16 @@ const DashboardPage = () => {
                                     <div className="mh-300px scroll-y me-n7 pe-7">
                                         <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
                                             <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
+                                                {listLogs.map(log => {
+                                                    if(log.integration_success == true) {
+                                                        return (
+                                                        <div>
+                                                            <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{log.message}</div>
+                                                            <div className="fw-semibold text-muted">{log.created_at}</div>
+                                                        </div>
+                                                        )
+                                                    }
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -164,78 +168,20 @@ const DashboardPage = () => {
                                 <div className="w-100">
                                     <div className="fs-6 fw-semibold mb-2"> Logs Error</div>
                                     <div className="mh-300px scroll-y me-n7 pe-7">
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
+                                        {listLogs.map(log => {
+                                            if(log.integration_success == false){
+                                                return (
+                                                <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
+                                                    <div className="d-flex align-items-center">
+                                                        <div>
+                                                            <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{log.message}</div>
+                                                            <div className="fw-semibold text-muted">{log.created_at}</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                <div>
-                                                    <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2"> Nome do Log</div>
-                                                    <div className="fw-semibold text-muted">Data e Hora</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                )
+                                            }
+                                        })}
                                     </div>
                                 </div>
                             </div>                            
