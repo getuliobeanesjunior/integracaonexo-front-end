@@ -1,13 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles.css'
 
 import Modal from '../../components/Modal';
+
+import { allLogs } from '../../service/log'
 
 const DashboardPage = () => {
     const [isModalManual, setIsModalManual] = useState(false)
     const [isModalLogS, setIsModalLogS] = useState(false)
     const [isModalLogF, setIsModalLogF] = useState(false)
-    return(
+    const [listLogs, setListLogs] = useState([])
+
+    console.log(allLogs)
+
+    useEffect(() => {
+        allLogs().then(resultAllLogs => {
+            setListLogs(resultAllLogs.data)
+        }).catch(error => {
+            // todo falta colocar um erro caso tenha algum erro na requisição
+        })
+    }, [])
+
+    return (
         <div className="d-flex flex-column flex-root">
             <div className="page launcher sidebar-enabled d-flex flex-row flex-column-fluid me-lg-5" id="kt_page">
                 <div className="d-flex flex-row-fluid">
@@ -66,7 +80,8 @@ const DashboardPage = () => {
                     <div className="mb-5 mb-lg-8" id="kt_sidebar_body">
                         <div className="hover-scroll-y me-n6 pe-6" id="kt_sidebar_body" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_sidebar_header, #kt_sidebar_footer" data-kt-scroll-wrappers="#kt_page, #kt_sidebar, #kt_sidebar_body" data-kt-scroll-offset="0">
                             <div className="timeline">
-                                <div className="timeline-item">
+                                {listLogs.map(log => (
+                                    <div className="timeline-item">
                                     <div className="timeline-line w-40px"></div>
                                     <div className="timeline-icon symbol symbol-circle symbol-40px me-4">
                                         <div className="symbol-label">
@@ -80,13 +95,14 @@ const DashboardPage = () => {
                                     </div>
                                     <div className="timeline-content mb-10 mt-n1">
                                         <div className="pe-3 mb-5">
-                                            <div className="fs-5 fw-semibold mb-2 text-white">Created 2 new tasks in "Development"</div>
+                                            <div className="fs-5 fw-semibold mb-2 text-white">{log.message}</div>
                                             <div className="d-flex align-items-center mt-1 fs-6">
-                                                <div className="text-white opacity-50 me-2 fs-7">Enivado em 4:23 PM </div>
+                                                <div className="text-white opacity-50 me-2 fs-7">{log.created_at}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                ))}
 
                                 <div className="timeline-item">
                                     <div className="timeline-line w-40px"></div>
@@ -108,15 +124,15 @@ const DashboardPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
             {isModalManual ? <Modal onClose={() => setIsModalManual(false)}>
                 <h1>testando1</h1>
-            </Modal> : null}   
+            </Modal> : null}
             {isModalLogS ? <Modal onClose={() => setIsModalLogS(false)}>
                 <div className="stepper stepper-links d-flex flex-column between">
                     <div className="container">
