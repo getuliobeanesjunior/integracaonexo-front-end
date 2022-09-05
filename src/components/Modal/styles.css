@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     outline: 0;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .modal-fullscreen .modal-body {
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .scroll-y {
@@ -114,4 +114,72 @@
 
 .ms-2 {
     margin-left: 0.5rem!important;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pb-10 {
+    padding-bottom: 2.5rem!important;
+}
+
+.pt-15 {
+    padding-top: 0.75rem!important;
+}
+
+.mx-auto {
+    margin-right: auto!important;
+    margin-left: auto!important;
+}
+
+.mw-600px {
+    max-width: 100%!important;
+}
+
+.w-100 {
+    width: 100%!important;
+}
+
+.current{
+    display: flex;
+    width: 100%;
+}
+
+.mh-300px {
+    width: 100%;
+    max-height: 500px!important;
+}
+
+.me-n7 {
+    margin-right: -1.75rem!important;
+}
+
+.scroll-y {
+    overflow-y: scroll;
+    position: relative;
+}
+
+.pe-7 {
+    padding-right: 1.75rem!important;
+}
+
+.flex-stack {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.border-bottom-dashed {
+    border-bottom-style: dashed!important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #eff2f5!important;
+}
+
+.py-4 {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
 }
