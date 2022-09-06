@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './styles.css'
+import { toast } from "react-toastify";
 
 import Modal from '../../components/Modal';
 
@@ -29,9 +30,9 @@ const DashboardPage = () => {
 
         stackPromises.map(workRequest => {
             workRequest.callback().then(result => {
-                console.log(`Sucesso no ${workRequest.nameCall}`)
+                toast.success('Work executado com sucesso!');
             }).catch(error => {
-                console.error(`Erro no ${workRequest.nameCall}`)
+                toast.error('Erro na execução do Work!');
             })
         })
     }
@@ -39,8 +40,9 @@ const DashboardPage = () => {
     useEffect(() => {
         allLogs().then(resultAllLogs => {
             setListLogs(resultAllLogs.data)
+            toast.success('Logs atualizado');
         }).catch(error => {
-            // todo falta colocar um erro caso tenha algum erro na requisição
+            toast.error('Erro na atualização dos logs!');
         })
     }, [])
 
