@@ -3,13 +3,38 @@ import './styles.css'
 
 import Modal from '../../components/Modal';
 
+// Requests
 import { allLogs } from '../../service/log'
+import {
+    callWorkCargo,
+    callWorkEmpresa,
+    callWorkFuncionario,
+    callWorkSetor,
+} from '../../service/work'
 
 const DashboardPage = () => {
     const [isModalManual, setIsModalManual] = useState(false)
     const [isModalLogS, setIsModalLogS] = useState(false)
     const [isModalLogF, setIsModalLogF] = useState(false)
     const [listLogs, setListLogs] = useState([])
+    const [works, setWorks] = useState([])
+
+    function handleCallWork() {
+        const stackPromises = []
+
+        if(works.workCargo == true) stackPromises.push({ nameCall: "Cargo", callback: callWorkCargo })
+        if(works.workEmpresa == true) stackPromises.push({ nameCall: "Empresa", callback: callWorkEmpresa })
+        if(works.workFuncionario == true) stackPromises.push({ nameCall: "Funcionario", callback: callWorkFuncionario })
+        if(works.workSetor == true) stackPromises.push({ nameCall: "Setor", callback: callWorkSetor })
+
+        stackPromises.map(workRequest => {
+            workRequest.callback().then(result => {
+                console.log(`Sucesso no ${workRequest.nameCall}`)
+            }).catch(error => {
+                console.error(`Erro no ${workRequest.nameCall}`)
+            })
+        })
+    }
 
     useEffect(() => {
         allLogs().then(resultAllLogs => {
@@ -117,7 +142,7 @@ const DashboardPage = () => {
                             <div class="fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="funcionario" id="kt_create_account_form_account_type_funcionario" />
+                                        <input onChange={(e) => { setWorks(current => {return {...current, "workFuncionario":e.target.checked}}) }} type="checkbox" class="btn-check" name="account_type" id="kt_create_account_form_account_type_funcionario" />
                                         <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_funcionario">
                                             <span class="d-block fw-semibold text-start">
                                                 <span class="text-dark fw-bold d-block fs-4 mb-2">Funcionário</span>
@@ -127,7 +152,7 @@ const DashboardPage = () => {
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="empresa" id="kt_create_account_form_account_type_empresa" />
+                                        <input onChange={(e) => { setWorks(current => {return {...current, "workEmpresa":e.target.checked}}) }} type="checkbox" class="btn-check" name="account_type" value="empresa" id="kt_create_account_form_account_type_empresa" />
                                         <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_empresa">
                                             <span class="d-block fw-semibold text-start">
                                                 <span class="text-dark fw-bold d-block fs-4 mb-2">Empresa</span>
@@ -138,7 +163,7 @@ const DashboardPage = () => {
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="cargo" id="kt_create_account_form_account_type_cargo" />
+                                        <input onChange={(e) => { setWorks(current => {return {...current, "workCargo":e.target.checked}}) }} type="checkbox" class="btn-check" name="account_type" value="cargo" id="kt_create_account_form_account_type_cargo" />
                                         <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_cargo">
                                             <span class="d-block fw-semibold text-start">
                                                 <span class="text-dark fw-bold d-block fs-4 mb-2">Cargo</span>
@@ -148,7 +173,7 @@ const DashboardPage = () => {
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="setor" id="kt_create_account_form_account_type_setor" />
+                                        <input onChange={(e) => { setWorks(current => {return {...current, "workSetor":e.target.checked}}) }} type="checkbox" class="btn-check" name="account_type" value="setor" id="kt_create_account_form_account_type_setor" />
                                         <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_setor">
                                             <span class="d-block fw-semibold text-start">
                                                 <span class="text-dark fw-bold d-block fs-4 mb-2">Setor</span>
@@ -159,7 +184,7 @@ const DashboardPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-lg btn-primary me-3 buttonManual">
+                                <button onClick={handleCallWork} type="button" class="btn btn-lg btn-primary me-3 buttonManual">
                                     <span class="indicator-label">Executar</span>
                                 </button>
                             </div>
