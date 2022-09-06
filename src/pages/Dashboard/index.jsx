@@ -117,42 +117,42 @@ const DashboardPage = () => {
                             <div class="fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="manual1" id="kt_create_account_form_account_type_manual1" />
-                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_manual1">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="funcionario" id="kt_create_account_form_account_type_funcionario" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_funcionario">
                                             <span class="d-block fw-semibold text-start">
-                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 1</span>
-                                                <span class="text-muted fw-semibold fs-6">Descrição manual 1</span>
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Funcionário</span>
+                                                <span class="text-muted fw-semibold fs-6">Rota de adição de funcionário</span>
                                             </span>
                                         </label>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="manual2" id="kt_create_account_form_account_type_manual2" />
-                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_manual2">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="empresa" id="kt_create_account_form_account_type_empresa" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_empresa">
                                             <span class="d-block fw-semibold text-start">
-                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 2</span>
-                                                <span class="text-muted fw-semibold fs-6">Descrição manual 2</span>
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Empresa</span>
+                                                <span class="text-muted fw-semibold fs-6">Rota de adição de empresa</span>
                                             </span>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="manual3" id="kt_create_account_form_account_type_manual3" />
-                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_manual3">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="cargo" id="kt_create_account_form_account_type_cargo" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_cargo">
                                             <span class="d-block fw-semibold text-start">
-                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 3</span>
-                                                <span class="text-muted fw-semibold fs-6">Descrição manual 3</span>
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Cargo</span>
+                                                <span class="text-muted fw-semibold fs-6">Rota de adição de cargo</span>
                                             </span>
                                         </label>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="checkbox" class="btn-check" name="account_type" value="manual4" id="kt_create_account_form_account_type_manual4" />
-                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_manual4">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="setor" id="kt_create_account_form_account_type_setor" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_setor">
                                             <span class="d-block fw-semibold text-start">
-                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 4</span>
-                                                <span class="text-muted fw-semibold fs-6">Descrição manual 4</span>
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Setor</span>
+                                                <span class="text-muted fw-semibold fs-6">Rota de adição de setor</span>
                                             </span>
                                         </label>
                                     </div>
