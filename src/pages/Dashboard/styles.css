@@ -401,7 +401,7 @@ button, input, optgroup, select, textarea {
 
 .launcher .sidebar {
     position: fixed;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     width: 425px;

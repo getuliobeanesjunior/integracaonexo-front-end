@@ -183,3 +183,117 @@
     padding-top: 1rem!important;
     padding-bottom: 1rem!important;
 }
+
+.text-dark {
+    color: #181C32!important;
+}
+
+.fw-bold {
+    font-weight: 600!important;
+}
+
+.align-items-center {
+    align-items: center!important;
+}
+
+.text-muted {
+    color: #A1A5B7!important;
+}
+
+.fw-semibold {
+    font-weight: 500!important;
+}
+
+.fs-6 {
+    font-size: 1.075rem!important;
+}
+
+.fv-plugins-icon-container {
+    position: relative;
+}
+
+.btn-check {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.btn-check:active+.btn.btn-outline.btn-outline-dashed, .btn-check:checked+.btn.btn-outline.btn-outline-dashed, .btn.btn-outline.btn-outline-dashed.active, .btn.btn-outline.btn-outline-dashed.show, .btn.btn-outline.btn-outline-dashed:active:not(.btn-active), .btn.btn-outline.btn-outline-dashed:focus:not(.btn-active), .btn.btn-outline.btn-outline-dashed:hover:not(.btn-active), .show>.btn.btn-outline.btn-outline-dashed {
+    border-color: #009ef7;
+}
+
+.btn:not(.btn-shadow):not(.shadow):not(.shadow-sm):not(.shadow-lg) {
+    box-shadow: none!important;
+}
+
+.btn-check:active+.btn.btn-active-light-primary, .btn-check:checked+.btn.btn-active-light-primary, .btn.btn-active-light-primary.active, .btn.btn-active-light-primary.show, .btn.btn-active-light-primary:active:not(.btn-active), .btn.btn-active-light-primary:focus:not(.btn-active), .btn.btn-active-light-primary:hover:not(.btn-active), .show>.btn.btn-active-light-primary {
+    color: #009ef7;
+    border-color: #f1faff;
+    background-color: #f1faff!important;
+}
+
+.btn.btn-outline.btn-outline-dashed {
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.btn.btn-outline-dashed {
+    border: 1px dashed #E4E6EF;
+}
+
+.p-7 {
+    padding: 1.75rem!important;
+}
+
+.mb-10 {
+    margin-bottom: 2.5rem!important;
+}
+
+
+.btn-check:active+.btn.btn-active-light-primary .svg-icon, .btn-check:active+.btn.btn-active-light-primary i, .btn-check:checked+.btn.btn-active-light-primary .svg-icon, .btn-check:checked+.btn.btn-active-light-primary i, .btn.btn-active-light-primary.active .svg-icon, .btn.btn-active-light-primary.active i, .btn.btn-active-light-primary.show .svg-icon, .btn.btn-active-light-primary.show i, .btn.btn-active-light-primary:active:not(.btn-active) .svg-icon, .btn.btn-active-light-primary:active:not(.btn-active) i, .btn.btn-active-light-primary:focus:not(.btn-active) .svg-icon, .btn.btn-active-light-primary:focus:not(.btn-active) i, .btn.btn-active-light-primary:hover:not(.btn-active) .svg-icon, .btn.btn-active-light-primary:hover:not(.btn-active) i, .show>.btn.btn-active-light-primary .svg-icon, .show>.btn.btn-active-light-primary i {
+    color: #009ef7;
+}
+
+.d-block {
+    display: block!important;
+}
+
+.text-start {
+    text-align: left!important;
+}
+
+.fs-4 {
+    font-size: 1.25rem!important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem!important;
+}
+
+.col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.manual{
+    margin-right: 2%;
+}
+
+.buttonManual{
+    position: absolute;
+    right: 10%;
+}
+
+@media (min-width: 1920px){
+    .mh-300px {
+        width: 100%;
+        max-height: 700px!important;
+    }
+}

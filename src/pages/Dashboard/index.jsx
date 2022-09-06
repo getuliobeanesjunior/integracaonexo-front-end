@@ -80,56 +80,92 @@ const DashboardPage = () => {
                             <div className="timeline">
                                 {listLogs.map(log => (
                                     <div className="timeline-item">
-                                    <div className="timeline-line w-40px"></div>
-                                    <div className="timeline-icon symbol symbol-circle symbol-40px me-4">
-                                        <div className="symbol-label">
-                                            <span className="svg-icon svg-icon-2 svg-icon-white">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" />
-                                                    <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" />
-                                                </svg>
-                                            </span>
+                                        <div className="timeline-line w-40px"></div>
+                                        <div className="timeline-icon symbol symbol-circle symbol-40px me-4">
+                                            <div className="symbol-label">
+                                                <span className="svg-icon svg-icon-2 svg-icon-white">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" />
+                                                        <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" />
+                                                    </svg>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="timeline-content mb-10 mt-n1">
-                                        <div className="pe-3 mb-5">
-                                            <div className="fs-5 fw-semibold mb-2 text-white">{log.message}</div>
-                                            <div className="d-flex align-items-center mt-1 fs-6">
-                                                <div className="text-white opacity-50 me-2 fs-7">{log.created_at}</div>
+                                        <div className="timeline-content mb-10 mt-n1">
+                                            <div className="pe-3 mb-5">
+                                                <div className="fs-5 fw-semibold mb-2 text-white">{log.message}</div>
+                                                <div className="d-flex align-items-center mt-1 fs-6">
+                                                    <div className="text-white opacity-50 me-2 fs-7">{log.created_at.replace(/-/g,"/").replace(/T/g," ").slice(0,19)}</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 ))}
-
-                                <div className="timeline-item">
-                                    <div className="timeline-line w-40px"></div>
-                                    <div className="timeline-icon symbol symbol-circle symbol-40px me-4">
-                                        <div className="symbol-label">
-                                            <span className="svg-icon svg-icon-2 svg-icon-white">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" />
-                                                    <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="timeline-content mb-10 mt-n1">
-                                        <div className="pe-3 mb-5">
-                                            <div className="fs-5 fw-semibold mb-2 text-white">2 new entries in "Landing Page"</div>
-                                            <div className="d-flex align-items-center mt-1 fs-6">
-                                                <div className="text-white opacity-50 me-2 fs-7">Enviado em 4:23 PM </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             {isModalManual ? <Modal onClose={() => setIsModalManual(false)}>
-                <h1>testando1</h1>
+                <div className='class="mx-auto mw-600px w-100 py-10 fv-plugins-bootstrap5 fv-plugins-framework"'>
+                    <div className='current'>
+                        <div className='w-100'>
+                            <div className='pb-10 pb-lg-15'>
+                                <h2 class="fw-bold d-flex align-items-center text-dark">Ativar Manualmente</h2>
+                                <div class="text-muted fw-semibold fs-6">Para iniciar quando for necessario </div>
+                            </div>
+                            <div class="fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="manual1" id="kt_create_account_form_account_type_manual1" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_manual1">
+                                            <span class="d-block fw-semibold text-start">
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 1</span>
+                                                <span class="text-muted fw-semibold fs-6">Descrição manual 1</span>
+                                            </span>
+                                        </label>
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="manual2" id="kt_create_account_form_account_type_manual2" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_manual2">
+                                            <span class="d-block fw-semibold text-start">
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 2</span>
+                                                <span class="text-muted fw-semibold fs-6">Descrição manual 2</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="manual3" id="kt_create_account_form_account_type_manual3" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-10 manual" for="kt_create_account_form_account_type_manual3">
+                                            <span class="d-block fw-semibold text-start">
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 3</span>
+                                                <span class="text-muted fw-semibold fs-6">Descrição manual 3</span>
+                                            </span>
+                                        </label>
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="checkbox" class="btn-check" name="account_type" value="manual4" id="kt_create_account_form_account_type_manual4" />
+                                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_create_account_form_account_type_manual4">
+                                            <span class="d-block fw-semibold text-start">
+                                                <span class="text-dark fw-bold d-block fs-4 mb-2">Manual 4</span>
+                                                <span class="text-muted fw-semibold fs-6">Descrição manual 4</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-lg btn-primary me-3 buttonManual">
+                                    <span class="indicator-label">Executar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Modal> : null}
             {isModalLogS ? <Modal onClose={() => setIsModalLogS(false)}>
                 <div className="stepper stepper-links d-flex flex-column between">
@@ -137,22 +173,23 @@ const DashboardPage = () => {
                         <div className="mx-auto w-100 mw-600px pt-15 pb-10 fv-plugins-bootstrap5 fv-plugins-framework">
                             <div className="current">
                                 <div className="w-100">
-                                    <div className="fs-6 fw-semibold mb-2"> Logs Sucesso</div>
+                                    <h2 className="mb-2"> Logs Sucesso</h2>
                                     <div className="mh-300px scroll-y me-n7 pe-7">
-                                        <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-                                            <div className="d-flex align-items-center">
-                                                {listLogs.map(log => {
-                                                    if(log.integration_success == true) {
-                                                        return (
+                                    {listLogs.map(log => {
+                                        if(log.integration_success == true) {
+                                            return (
+                                                <div className="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
+                                                    <div className="d-flex align-items-center">
                                                         <div>
                                                             <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{log.message}</div>
-                                                            <div className="fw-semibold text-muted">{log.created_at}</div>
+                                                            <div className="fw-semibold text-muted mb-2">{log.created_at.replace(/-/g,"/").replace(/T/g," ").slice(0,19) + "   " + log.integration_type}</div>
+                                                            <div className="fw-semibold text-muted">{JSON.stringify(log.sent_json, null, 4).replace(/["{[,\\}\]]/g, "\n")}</div>
                                                         </div>
-                                                        )
-                                                    }
-                                                })}
-                                            </div>
-                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                    })}
                                     </div>
                                 </div>
                             </div>                            
@@ -166,7 +203,7 @@ const DashboardPage = () => {
                         <div className="mx-auto w-100 mw-600px pt-15 pb-10 fv-plugins-bootstrap5 fv-plugins-framework">
                             <div className="current">
                                 <div className="w-100">
-                                    <div className="fs-6 fw-semibold mb-2"> Logs Error</div>
+                                    <h2 className="fmb-2"> Logs Error</h2>
                                     <div className="mh-300px scroll-y me-n7 pe-7">
                                         {listLogs.map(log => {
                                             if(log.integration_success == false){
@@ -175,7 +212,8 @@ const DashboardPage = () => {
                                                     <div className="d-flex align-items-center">
                                                         <div>
                                                             <div className="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{log.message}</div>
-                                                            <div className="fw-semibold text-muted">{log.created_at}</div>
+                                                            <div className="fw-semibold text-muted mb-2">{log.created_at.replace(/-/g,"/").replace(/T/g," ").slice(0,19) + "   " + log.integration_type}</div>
+                                                            <div className="fw-semibold text-muted">{JSON.stringify(log.sent_json, null, 4).replace(/["{[,\\}\]]/g, "\n")}</div>
                                                         </div>
                                                     </div>
                                                 </div>
